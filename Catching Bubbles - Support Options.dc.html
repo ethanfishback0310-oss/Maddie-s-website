@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Options — Catching Bubbles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Nunito', sans-serif; background:#FDFBF7; color:#3f3b54; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  h1,h2,h3,h4 { font-family:'Quicksand', sans-serif; font-weight:700; letter-spacing:-0.02em; }
+  a { color:inherit; text-decoration:none; cursor:pointer; } /*linkreset*/
+  img { max-width:100%; display:block; }
+  button { font-family:'Nunito', sans-serif; cursor:pointer; border:none; }
+  @keyframes drift     { 0%,100%{transform:translate(0,0);} 50%{transform:translate(24px,-16px);} }
+  @keyframes driftSlow { 0%,100%{transform:translate(0,0);} 50%{transform:translate(-18px,14px);} }
+  @keyframes bob       { 0%,100%{transform:translateY(0);}  50%{transform:translateY(-12px);} }
+  @keyframes bobSm     { 0%,100%{transform:translateY(0);}  50%{transform:translateY(-7px);} }
+</style>
+</head>
+<body>
+
+<nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; padding:18px 48px; background:rgba(253,251,247,0.85); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,0,0,0.04);">
+  <a href="Catching%20Bubbles%20-%20Home.dc.html" style="display:flex; align-items:center; gap:12px;">
+    <div style="position:relative; width:44px; height:44px; flex:none;">
+      <div style="position:absolute; top:2px; left:2px; width:26px; height:26px; border-radius:50%; background:linear-gradient(135deg,#AFC9A6,#9FC4DD); opacity:.9;"></div>
+      <div style="position:absolute; bottom:0; right:0; width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg,#CBBDE9,#F6CFD7);"></div>
+      <div style="position:absolute; top:14px; left:14px; width:13px; height:13px; border-radius:50%; background:#fff; opacity:.7;"></div>
+    </div>
+    <div>
+      <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:19px; color:#4B4660; line-height:1.1;">Catching Bubbles</div>
+      <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#9F8FCB; font-weight:700; margin-top:2px;">4 Haven Platform</div>
+    </div>
+  </a>
+  <div style="display:flex; align-items:center; gap:34px;">
+    <a href="Catching%20Bubbles%20-%20Care%20Quiz.dc.html" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:15px; color:#4B4660;">Find My Match</a>
+    <a href="Catching%20Bubbles%20-%20Our%20Village.dc.html" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:15px; color:#4B4660;">Our Village</a>
+    <a href="Catching%20Bubbles%20-%20Support%20Options.dc.html" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:15px; color:#7FA98C;">Support Options</a>
+    <a href="Catching%20Bubbles%20-%20Resources.dc.html" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:15px; color:#4B4660;">Resources</a>
+    <a href="Catching%20Bubbles%20-%20Community.dc.html" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:15px; color:#4B4660;">Community</a>
+    <a href="Catching%20Bubbles%20-%20Join%20Our%20Team.dc.html" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:15px; color:#4B4660;">Join Our Team</a>
+  </div>
+  <div style="display:flex; align-items:center; gap:22px;">
+    <a href="4%20Haven%20-%20Parent%20Dashboard.dc.html" style="font-family:'Nunito',sans-serif; font-weight:700; font-size:15px; color:#4B4660;">Login</a>
+    <a href="Catching%20Bubbles%20-%20Get%20Started.dc.html" style="background:linear-gradient(135deg,#9DBE93,#88B0D4); color:#fff; font-family:'Quicksand',sans-serif; font-weight:700; font-size:14px; padding:13px 26px; border-radius:999px; box-shadow:0 14px 34px rgba(136,176,212,.42);">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="position:relative; padding:88px 48px 64px; max-width:900px; margin:0 auto; text-align:center; overflow:hidden;">
+  <div style="position:absolute; top:-40px; right:-30px; width:180px; height:130px; background:#fff; border-radius:70px; filter:blur(30px); opacity:.7; animation:drift 18s ease-in-out infinite;"></div>
+  <div style="position:absolute; bottom:-30px; left:-40px; width:160px; height:120px; background:#fff; border-radius:70px; filter:blur(30px); opacity:.6; animation:driftSlow 20s ease-in-out infinite;"></div>
+  <div style="position:relative;">
+    <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:#7FA98C; margin-bottom:16px;">Support Options</div>
+    <h2 style="font-size:44px; line-height:1.15; color:#3f3b54; margin-bottom:20px;">Care that meets you<br>where you are</h2>
+    <p style="font-size:17px; line-height:1.7; color:#6b6679; max-width:600px; margin:0 auto;">Every family's village looks a little different. Whether you need someone by your side through the nights, an extra set of hands during the day, or help pulling the whole village together, there's a way for us to hold you.</p>
+  </div>
+</section>
+
+<!-- OFFERINGS -->
+<section style="padding:24px 48px 40px; max-width:1080px; margin:0 auto; display:flex; flex-direction:column; gap:28px;">
+
+  <!-- 1. Overnight & Newborn Care — HIGHLIGHTED -->
+  <div style="background:linear-gradient(150deg,#9DBE93,#88B0D4); border-radius:28px; padding:44px 44px; box-shadow:0 20px 46px rgba(136,176,212,.35); color:#fff; position:relative; overflow:hidden;">
+    <div style="position:absolute; top:-40px; right:-20px; width:150px; height:150px; border-radius:50%; background:rgba(255,255,255,0.12); animation:bob 7s ease-in-out infinite;"></div>
+    <div style="position:relative;">
+      <div style="display:inline-block; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; background:rgba(255,255,255,0.22); padding:6px 16px; border-radius:999px; margin-bottom:16px;">Our Specialty</div>
+      <h3 style="font-size:28px; color:#fff; margin-bottom:14px;">Overnight & Newborn Care</h3>
+      <p style="font-size:16px; line-height:1.75; color:rgba(255,255,255,0.94); max-width:640px; margin-bottom:22px;">This is where we live. Our overnight & newborn specialists take the nights so you can sleep, heal, and wake up ready to love on your baby instead of running on empty. Feedings, soothing, swaddling, gentle sleep support — we handle the dark hours with calm, practiced hands.</p>
+      <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.85); margin-bottom:12px;">What's included</div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <div style="background:rgba(255,255,255,0.2); padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Overnight feedings & soothing</div>
+        <div style="background:rgba(255,255,255,0.2); padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Newborn care coaching</div>
+        <div style="background:rgba(255,255,255,0.2); padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Gentle sleep shaping</div>
+        <div style="background:rgba(255,255,255,0.2); padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Overnight logs for pediatric visits</div>
+        <div style="background:rgba(255,255,255,0.2); padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Flexible 8–12 hour shifts</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Postpartum Doula Care -->
+  <div style="background:#fff; border-radius:28px; padding:40px 44px; box-shadow:0 12px 34px rgba(95,110,130,.08);">
+    <h3 style="font-size:24px; color:#3f3b54; margin-bottom:14px;">Postpartum Doula Care</h3>
+    <p style="font-size:15.5px; line-height:1.75; color:#6b6679; max-width:680px; margin-bottom:22px;">Daytime, hands-on support for the fourth trimester. Your doula moves through your home doing whatever the day actually calls for — holding the baby so you can shower, prepping a warm meal, or simply sitting with you while your body and heart catch up to everything that's changed.</p>
+    <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#7FA98C; margin-bottom:12px;">What's included</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <div style="background:#E7EFE3; color:#7FA98C; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Newborn & infant care support</div>
+      <div style="background:#E7EFE3; color:#7FA98C; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Light meal prep</div>
+      <div style="background:#E7EFE3; color:#7FA98C; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Emotional & physical recovery support</div>
+      <div style="background:#E7EFE3; color:#7FA98C; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Sibling & household rhythm help</div>
+    </div>
+  </div>
+
+  <!-- 3. Birth Doula Support -->
+  <div style="background:#fff; border-radius:28px; padding:40px 44px; box-shadow:0 12px 34px rgba(95,110,130,.08);">
+    <h3 style="font-size:24px; color:#3f3b54; margin-bottom:14px;">Birth Doula Support</h3>
+    <p style="font-size:15.5px; line-height:1.75; color:#6b6679; max-width:680px; margin-bottom:22px;">Steady, continuous care from the last weeks of pregnancy through labor and delivery. Your birth doula helps you build a plan you feel good about, then stays close through every contraction — offering comfort measures, calm guidance, and an anchor in the room, wherever you're birthing.</p>
+    <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#9F8FCB; margin-bottom:12px;">What's included</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <div style="background:#F1EEF8; color:#9F8FCB; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Prenatal planning visits</div>
+      <div style="background:#F1EEF8; color:#9F8FCB; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">On-call from 38 weeks</div>
+      <div style="background:#F1EEF8; color:#9F8FCB; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Continuous labor support</div>
+      <div style="background:#F1EEF8; color:#9F8FCB; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Partner coaching</div>
+      <div style="background:#F1EEF8; color:#9F8FCB; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">One postpartum follow-up visit</div>
+    </div>
+  </div>
+
+  <!-- 4. Lactation Support -->
+  <div style="background:#fff; border-radius:28px; padding:40px 44px; box-shadow:0 12px 34px rgba(95,110,130,.08);">
+    <h3 style="font-size:24px; color:#3f3b54; margin-bottom:14px;">Lactation Support</h3>
+    <p style="font-size:15.5px; line-height:1.75; color:#6b6679; max-width:680px; margin-bottom:22px;">Feeding your baby shouldn't feel like a fight. Our lactation specialists sit with you through latch troubles, supply questions, pumping schedules, and everything in between — with zero judgment about however you decide to feed your family.</p>
+    <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#88A9D6; margin-bottom:12px;">What's included</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <div style="background:#EAF1F6; color:#88A9D6; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">In-home latch & positioning help</div>
+      <div style="background:#EAF1F6; color:#88A9D6; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Supply & weight-gain guidance</div>
+      <div style="background:#EAF1F6; color:#88A9D6; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Pumping & bottle-feeding plans</div>
+      <div style="background:#EAF1F6; color:#88A9D6; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Judgment-free combo & formula support</div>
+    </div>
+  </div>
+
+  <!-- 5. Family Coordination -->
+  <div style="background:#fff; border-radius:28px; padding:40px 44px; box-shadow:0 12px 34px rgba(95,110,130,.08);">
+    <h3 style="font-size:24px; color:#3f3b54; margin-bottom:14px;">Family Coordination</h3>
+    <p style="font-size:15.5px; line-height:1.75; color:#6b6679; max-width:680px; margin-bottom:22px;">You have a village — grandparents, friends, meal trains, well-meaning offers to help. Our coordination support gathers all of it into one gentle, organized plan, so care actually reaches you instead of getting lost in good intentions.</p>
+    <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#E2A1B0; margin-bottom:12px;">What's included</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <div style="background:#FCEDF0; color:#E2A1B0; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Care calendar & scheduling</div>
+      <div style="background:#FCEDF0; color:#E2A1B0; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Meal train & visitor coordination</div>
+      <div style="background:#FCEDF0; color:#E2A1B0; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Vendor & appointment tracking</div>
+      <div style="background:#FCEDF0; color:#E2A1B0; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">One point of contact for your village</div>
+    </div>
+  </div>
+
+  <!-- 6. Twin & Multiples Care -->
+  <div style="background:#fff; border-radius:28px; padding:40px 44px; box-shadow:0 12px 34px rgba(95,110,130,.08);">
+    <h3 style="font-size:24px; color:#3f3b54; margin-bottom:14px;">Twin & Multiples Care</h3>
+    <p style="font-size:15.5px; line-height:1.75; color:#6b6679; max-width:680px; margin-bottom:22px;">Two (or more) babies call for a different kind of village. This is Jordan's specialty on our team — staggered feeding schedules, tandem soothing, and the extra set of hands that makes multiples feel manageable instead of overwhelming, night after night.</p>
+    <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#7FA98C; margin-bottom:12px;">What's included</div>
+    <div style="display:flex; flex-wrap:wrap; gap:10px;">
+      <div style="background:#E7EFE3; color:#7FA98C; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Staggered feeding & sleep systems</div>
+      <div style="background:#E7EFE3; color:#7FA98C; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Multiples-experienced specialists</div>
+      <div style="background:#E7EFE3; color:#7FA98C; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Extra overnight coverage options</div>
+      <div style="background:#E7EFE3; color:#7FA98C; padding:10px 18px; border-radius:999px; font-size:14px; font-weight:700;">Guidance from Jordan's specialty team</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- NOT SURE / CARE QUIZ BANNER -->
+<section style="padding:16px 48px 64px; max-width:1080px; margin:0 auto;">
+  <div style="background:#F1EEF8; border-radius:28px; padding:44px 48px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
+    <div style="max-width:520px;">
+      <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:#9F8FCB; margin-bottom:12px;">Not sure what you need?</div>
+      <h3 style="font-size:26px; color:#3f3b54; margin-bottom:10px;">Let's figure it out together</h3>
+      <p style="font-size:15.5px; line-height:1.7; color:#6b6679;">Pricing and care plans are as unique as your family. Take our two-minute Care Quiz and we'll point you toward the right support, the right specialist, and a plan that actually fits your life.</p>
+    </div>
+    <a href="Catching%20Bubbles%20-%20Care%20Quiz.dc.html" style="background:linear-gradient(135deg,#9DBE93,#88B0D4); color:#fff; font-family:'Quicksand',sans-serif; font-weight:700; font-size:15px; padding:16px 34px; border-radius:999px; box-shadow:0 14px 34px rgba(136,176,212,.42); white-space:nowrap;">Take the Care Quiz</a>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section style="padding:20px 48px 100px; max-width:800px; margin:0 auto; text-align:center;">
+  <h3 style="font-size:30px; color:#3f3b54; margin-bottom:14px;">Ready to bring your village home?</h3>
+  <p style="font-size:16px; line-height:1.7; color:#6b6679; margin-bottom:28px;">Let's talk through what your family needs and match you with the right kind of care. No pressure, just a warm conversation to start.</p>
+  <a href="Catching%20Bubbles%20-%20Get%20Started.dc.html" style="display:inline-block; background:linear-gradient(135deg,#9DBE93,#88B0D4); color:#fff; font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; padding:18px 40px; border-radius:999px; box-shadow:0 14px 34px rgba(136,176,212,.42);">Book a Consultation</a>
+</section>
+
+<footer style="background:#3f3b54; color:#cfc9de; padding:64px 48px 32px;">
+  <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:48px; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,0.1);">
+    <div style="max-width:300px;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+        <div style="position:relative; width:38px; height:38px; flex:none;">
+          <div style="position:absolute; top:2px; left:2px; width:22px; height:22px; border-radius:50%; background:linear-gradient(135deg,#AFC9A6,#9FC4DD); opacity:.9;"></div>
+          <div style="position:absolute; bottom:0; right:0; width:19px; height:19px; border-radius:50%; background:linear-gradient(135deg,#CBBDE9,#F6CFD7);"></div>
+        </div>
+        <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:17px; color:#fff;">Catching Bubbles</div>
+      </div>
+      <p style="font-size:14px; line-height:1.7; color:#a8a1bd;">Every family deserves a village. Overnight & newborn postpartum specialists, supporting you through pregnancy, birth, postpartum, and beyond.</p>
+    </div>
+    <div>
+      <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:#AFC9A6; margin-bottom:16px;">Explore</div>
+      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
+        <a href="Catching%20Bubbles%20-%20Care%20Quiz.dc.html">Find My Match</a>
+        <a href="Catching%20Bubbles%20-%20Our%20Village.dc.html">Our Village</a>
+        <a href="Catching%20Bubbles%20-%20Support%20Options.dc.html">Support Options</a>
+        <a href="Catching%20Bubbles%20-%20Resources.dc.html">Resources</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:#CBBDE9; margin-bottom:16px;">Get Involved</div>
+      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px;">
+        <a href="Catching%20Bubbles%20-%20Community.dc.html">4 Haven Community</a>
+        <a href="Catching%20Bubbles%20-%20Certification.dc.html">Certification</a>
+        <a href="Catching%20Bubbles%20-%20Join%20Our%20Team.dc.html">Join Our Team</a>
+        <a href="Catching%20Bubbles%20-%20Get%20Started.dc.html">Get Started</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:#F6CFD7; margin-bottom:16px;">Connect</div>
+      <div style="display:flex; flex-direction:column; gap:12px; font-size:14px; color:#a8a1bd;">
+        <span>hello@catchingbubbles.com</span>
+        <span>(555) 010-0143</span>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1200px; margin:0 auto; padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12.5px; color:#8b85a0;">
+    <span>© 2026 Catching Bubbles · 4 Haven Platform. All rights reserved.</span>
+    <span>Made with warmth, for families everywhere.</span>
+  </div>
+</footer>
+
+</body>
+</html>

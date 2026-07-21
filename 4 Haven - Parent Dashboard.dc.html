@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent Dashboard — Catching Bubbles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Nunito', sans-serif; background:#FDFBF7; color:#3f3b54; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  h1,h2,h3,h4 { font-family:'Quicksand', sans-serif; font-weight:700; letter-spacing:-0.02em; }
+  a { color:inherit; text-decoration:none; cursor:pointer; } /*linkreset*/
+  img { max-width:100%; display:block; }
+  button { font-family:'Nunito', sans-serif; cursor:pointer; border:none; }
+  @keyframes drift     { 0%,100%{transform:translate(0,0);} 50%{transform:translate(24px,-16px);} }
+  @keyframes driftSlow { 0%,100%{transform:translate(0,0);} 50%{transform:translate(-18px,14px);} }
+  @keyframes bob       { 0%,100%{transform:translateY(0);}  50%{transform:translateY(-12px);} }
+  @keyframes bobSm     { 0%,100%{transform:translateY(0);}  50%{transform:translateY(-7px);} }
+</style>
+</head>
+<body>
+
+<div style="display:flex; min-height:100vh;">
+
+  <!-- SIDEBAR -->
+  <aside style="width:240px; flex:none; background:#FBF9F4; border-right:1px solid rgba(0,0,0,0.06); box-shadow:2px 0 24px rgba(95,110,130,.05); display:flex; flex-direction:column; padding:28px 18px; position:sticky; top:0; height:100vh;">
+
+    <a href="Catching%20Bubbles%20-%20Home.dc.html" style="display:flex; align-items:center; gap:10px; padding:0 8px 28px;">
+      <div style="position:relative; width:34px; height:34px; flex:none;">
+        <div style="position:absolute; top:1px; left:1px; width:20px; height:20px; border-radius:50%; background:linear-gradient(135deg,#AFC9A6,#9FC4DD); opacity:.9;"></div>
+        <div style="position:absolute; bottom:0; right:0; width:17px; height:17px; border-radius:50%; background:linear-gradient(135deg,#CBBDE9,#F6CFD7);"></div>
+        <div style="position:absolute; top:11px; left:11px; width:10px; height:10px; border-radius:50%; background:#fff; opacity:.7;"></div>
+      </div>
+      <div>
+        <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:15px; color:#4B4660; line-height:1.1;">Catching Bubbles</div>
+        <div style="font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:#9F8FCB; font-weight:700; margin-top:2px;">4 Haven Platform</div>
+      </div>
+    </a>
+
+    <nav style="display:flex; flex-direction:column; gap:6px; flex:1;">
+      <a href="#" style="display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:16px; background:linear-gradient(135deg,#E7EFE3,#EAF1F6); color:#4B4660; font-weight:700; font-size:14.5px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:#7FA98C; flex:none;"></span>
+        Overview
+      </a>
+      <a href="#" style="display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:16px; color:#6b6679; font-weight:600; font-size:14.5px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:#CBBDE9; flex:none;"></span>
+        My Care Team
+      </a>
+      <a href="#" style="display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:16px; color:#6b6679; font-weight:600; font-size:14.5px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:#9FC4DD; flex:none;"></span>
+        Appointments
+      </a>
+      <a href="#" style="display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:16px; color:#6b6679; font-weight:600; font-size:14.5px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:#F6CFD7; flex:none;"></span>
+        Messages
+      </a>
+      <a href="Catching%20Bubbles%20-%20Resources.dc.html" style="display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:16px; color:#6b6679; font-weight:600; font-size:14.5px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:#AFC9A6; flex:none;"></span>
+        Resources
+      </a>
+      <a href="#" style="display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:16px; color:#6b6679; font-weight:600; font-size:14.5px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:#CBBDE9; flex:none;"></span>
+        Billing
+      </a>
+      <a href="#" style="display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:16px; color:#6b6679; font-weight:600; font-size:14.5px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:#9FC4DD; flex:none;"></span>
+        Settings
+      </a>
+    </nav>
+
+    <div style="border-top:1px solid rgba(0,0,0,0.06); padding-top:16px; margin-top:16px;">
+      <a href="Catching%20Bubbles%20-%20Home.dc.html" style="display:flex; align-items:center; gap:12px; padding:12px 16px; border-radius:16px; color:#8B8699; font-weight:600; font-size:14px;">
+        Log Out
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main style="flex:1; padding:48px 48px 64px; background:#FDFBF7;">
+
+    <header style="margin-bottom:36px;">
+      <h1 style="font-size:32px; color:#3f3b54;">Welcome back, Sarah</h1>
+      <p style="font-size:15px; color:#8B8699; margin-top:6px;">Here's what's happening with your care team this week.</p>
+    </header>
+
+    <!-- CARE TEAM -->
+    <section style="background:#fff; border-radius:28px; box-shadow:0 12px 34px rgba(95,110,130,.08); padding:32px; margin-bottom:28px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:22px;">
+        <h2 style="font-size:20px; color:#3f3b54;">Your Care Team</h2>
+        <span style="font-size:12.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#7FA98C; background:#E7EFE3; padding:6px 14px; border-radius:999px;">The Calm Harbor</span>
+      </div>
+
+      <div style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:24px;">
+        <div style="display:flex; align-items:center; gap:14px; background:#F1EEF8; border-radius:20px; padding:14px 20px; flex:1; min-width:220px;">
+          <div style="width:56px; height:56px; border-radius:50%; flex:none; background:radial-gradient(circle at 35% 30%, #fff, #CBBDE9); display:flex; align-items:center; justify-content:center; font-family:'Quicksand',sans-serif; font-weight:700; color:#5d5870; font-size:13px;">Photo</div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; color:#3f3b54;">Tori</div>
+            <div style="font-size:13px; color:#6b6679;">Overnight &amp; Newborn Specialist</div>
+            <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#9F8FCB; margin-top:2px;">Primary</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:14px; background:#E7EFE3; border-radius:20px; padding:14px 20px; flex:1; min-width:220px;">
+          <div style="width:56px; height:56px; border-radius:50%; flex:none; background:radial-gradient(circle at 35% 30%, #fff, #AFC9A6); display:flex; align-items:center; justify-content:center; font-family:'Quicksand',sans-serif; font-weight:700; color:#3f3b54; font-size:13px;">Photo</div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; color:#3f3b54;">Loren</div>
+            <div style="font-size:13px; color:#6b6679;">Postpartum Doula</div>
+            <div style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#7FA98C; margin-top:2px;">Secondary</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:12.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#8B8699; margin-bottom:12px;">Also on your village</div>
+      <div style="display:flex; gap:22px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:40px; height:40px; border-radius:50%; flex:none; background:radial-gradient(circle at 35% 30%, #fff, #9FC4DD);"></div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:14px; color:#3f3b54;">Priya</div>
+            <div style="font-size:12px; color:#8B8699;">Lactation Support</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:40px; height:40px; border-radius:50%; flex:none; background:radial-gradient(circle at 35% 30%, #fff, #F6CFD7);"></div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:14px; color:#3f3b54;">Maya</div>
+            <div style="font-size:12px; color:#8B8699;">Birth Doula</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:40px; height:40px; border-radius:50%; flex:none; background:radial-gradient(circle at 35% 30%, #fff, #CBBDE9);"></div>
+          <div>
+            <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:14px; color:#3f3b54;">Nina</div>
+            <div style="font-size:12px; color:#8B8699;">Family Coordination</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPCOMING -->
+    <section style="margin-bottom:28px;">
+      <h2 style="font-size:20px; color:#3f3b54; margin-bottom:16px;">Upcoming</h2>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+
+        <div style="background:#fff; border-radius:22px; box-shadow:0 10px 28px rgba(95,110,130,.07); padding:20px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="width:44px; height:44px; border-radius:14px; background:#E7EFE3; flex:none; display:flex; align-items:center; justify-content:center; font-size:18px;">🌙</div>
+            <div>
+              <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:15px; color:#3f3b54;">Overnight Care with Tori</div>
+              <div style="font-size:13px; color:#8B8699;">Tonight, 9:00 PM – 6:00 AM</div>
+            </div>
+          </div>
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#7FA98C; background:#E7EFE3; padding:6px 14px; border-radius:999px;">Confirmed</span>
+        </div>
+
+        <div style="background:#fff; border-radius:22px; box-shadow:0 10px 28px rgba(95,110,130,.07); padding:20px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="width:44px; height:44px; border-radius:14px; background:#F1EEF8; flex:none; display:flex; align-items:center; justify-content:center; font-size:18px;">📞</div>
+            <div>
+              <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:15px; color:#3f3b54;">Check-in Call with Loren</div>
+              <div style="font-size:13px; color:#8B8699;">Thursday, 2:00 PM</div>
+            </div>
+          </div>
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#9F8FCB; background:#F1EEF8; padding:6px 14px; border-radius:999px;">Confirmed</span>
+        </div>
+
+        <div style="background:#fff; border-radius:22px; box-shadow:0 10px 28px rgba(95,110,130,.07); padding:20px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="width:44px; height:44px; border-radius:14px; background:#EAF1F6; flex:none; display:flex; align-items:center; justify-content:center; font-size:18px;">🤍</div>
+            <div>
+              <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:15px; color:#3f3b54;">Lactation Session with Priya</div>
+              <div style="font-size:13px; color:#8B8699;">Saturday, 11:00 AM</div>
+            </div>
+          </div>
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#88A9D6; background:#EAF1F6; padding:6px 14px; border-radius:999px;">Pending</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section style="margin-bottom:28px;">
+      <h2 style="font-size:20px; color:#3f3b54; margin-bottom:16px;">Resources for You</h2>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a href="Catching%20Bubbles%20-%20Resources.dc.html" style="flex:1; min-width:200px; background:#fff; border-radius:20px; box-shadow:0 8px 22px rgba(95,110,130,.06); padding:20px; display:block;">
+          <div style="font-size:22px; margin-bottom:8px;">🌤️</div>
+          <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:14.5px; color:#3f3b54;">Surviving the Newborn Nights</div>
+          <div style="font-size:12.5px; color:#8B8699; margin-top:4px;">A gentle guide to overnight rhythms</div>
+        </a>
+        <a href="Catching%20Bubbles%20-%20Resources.dc.html" style="flex:1; min-width:200px; background:#fff; border-radius:20px; box-shadow:0 8px 22px rgba(95,110,130,.06); padding:20px; display:block;">
+          <div style="font-size:22px; margin-bottom:8px;">🍼</div>
+          <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:14.5px; color:#3f3b54;">Feeding, Simplified</div>
+          <div style="font-size:12.5px; color:#8B8699; margin-top:4px;">Notes from our lactation specialists</div>
+        </a>
+        <a href="Catching%20Bubbles%20-%20Resources.dc.html" style="flex:1; min-width:200px; background:#fff; border-radius:20px; box-shadow:0 8px 22px rgba(95,110,130,.06); padding:20px; display:block;">
+          <div style="font-size:22px; margin-bottom:8px;">💛</div>
+          <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:14.5px; color:#3f3b54;">Caring for You, Too</div>
+          <div style="font-size:12.5px; color:#8B8699; margin-top:4px;">Postpartum recovery, gently explained</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- NEED SOMETHING ELSE -->
+    <section style="background:#F4F0E6; border-radius:24px; padding:28px 32px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:17px; color:#3f3b54;">Need something else?</div>
+        <div style="font-size:13.5px; color:#8B8699; margin-top:4px;">We're here anytime you need a little more support.</div>
+      </div>
+      <a href="Catching%20Bubbles%20-%20Get%20Started.dc.html" style="background:linear-gradient(135deg,#9DBE93,#88B0D4); color:#fff; font-family:'Quicksand',sans-serif; font-weight:700; font-size:14px; padding:14px 28px; border-radius:999px; box-shadow:0 14px 34px rgba(136,176,212,.42); white-space:nowrap;">Book Additional Support</a>
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>

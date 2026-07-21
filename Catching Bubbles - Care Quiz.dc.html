@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find My Care Match — Catching Bubbles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Nunito', sans-serif; background:linear-gradient(160deg,#FDFBF7 0%,#F4F0E6 44%,#EAF0F4 100%); color:#3f3b54; -webkit-font-smoothing:antialiased; min-height:100vh; overflow-x:hidden; }
+  h1,h2,h3,h4 { font-family:'Quicksand', sans-serif; font-weight:700; letter-spacing:-0.02em; }
+  a { color:inherit; text-decoration:none; cursor:pointer; } /*linkreset*/
+  img { max-width:100%; display:block; }
+  button { font-family:'Nunito', sans-serif; cursor:pointer; border:none; background:none; }
+  @keyframes drift     { 0%,100%{transform:translate(0,0);} 50%{transform:translate(24px,-16px);} }
+  @keyframes driftSlow { 0%,100%{transform:translate(0,0);} 50%{transform:translate(-18px,14px);} }
+  @keyframes bob       { 0%,100%{transform:translateY(0);}  50%{transform:translateY(-12px);} }
+  @keyframes bobSm     { 0%,100%{transform:translateY(0);}  50%{transform:translateY(-7px);} }
+  .option { border:2px solid #EFEAF4; border-radius:18px; padding:20px 22px; margin-bottom:14px; cursor:pointer; display:flex; align-items:center; justify-content:space-between; background:#fff; transition:border-color .15s ease, background .15s ease; }
+  .option:hover { border-color:#CFE3F0; }
+  .option.selected { border:2px solid #9DBE93; background:#F7FBF5; }
+  .badge { width:24px; height:24px; border-radius:50%; border:2px solid #D8D3E4; flex:none; display:flex; align-items:center; justify-content:center; }
+  .option.selected .badge { border-color:#9DBE93; background:#9DBE93; color:#fff; font-size:13px; font-weight:700; }
+  .btn-primary { background:linear-gradient(135deg,#9DBE93,#88B0D4); color:#fff; font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; padding:16px 34px; border-radius:999px; box-shadow:0 14px 34px rgba(136,176,212,.42); transition:opacity .15s ease; }
+  .btn-primary[disabled] { opacity:.4; pointer-events:none; box-shadow:none; }
+  .btn-secondary { background:#fff; color:#5d5870; font-family:'Quicksand',sans-serif; font-weight:700; font-size:15px; padding:16px 28px; border-radius:999px; box-shadow:0 5px 18px rgba(0,0,0,.06); }
+</style>
+</head>
+<body>
+
+<div style="position:absolute; top:60px; left:6%; width:200px; height:110px; background:#fff; border-radius:70px; filter:blur(30px); opacity:.65; animation:drift 18s ease-in-out infinite;"></div>
+<div style="position:absolute; top:300px; right:8%; width:170px; height:95px; background:#fff; border-radius:70px; filter:blur(28px); opacity:.55; animation:driftSlow 22s ease-in-out infinite;"></div>
+
+<!-- Minimal top bar: logo only + save & exit -->
+<div style="position:relative; display:flex; align-items:center; justify-content:space-between; padding:26px 48px;">
+  <a href="Catching%20Bubbles%20-%20Home.dc.html" style="display:flex; align-items:center; gap:12px;">
+    <div style="position:relative; width:40px; height:40px; flex:none;">
+      <div style="position:absolute; top:2px; left:2px; width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,#AFC9A6,#9FC4DD); opacity:.9;"></div>
+      <div style="position:absolute; bottom:0; right:0; width:20px; height:20px; border-radius:50%; background:linear-gradient(135deg,#CBBDE9,#F6CFD7);"></div>
+      <div style="position:absolute; top:12px; left:12px; width:11px; height:11px; border-radius:50%; background:#fff; opacity:.7;"></div>
+    </div>
+    <div style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:17px; color:#4B4660;">Catching Bubbles</div>
+  </a>
+  <a href="Catching%20Bubbles%20-%20Home.dc.html" style="font-size:14px; font-weight:700; color:#8B8699;">Save &amp; exit</a>
+</div>
+
+<!-- QUIZ SCREEN -->
+<div id="quiz-screen" style="position:relative; max-width:640px; margin:20px auto 100px; padding:0 24px;">
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+    <div id="q-label" style="font-size:13px; font-weight:700; color:#7FA98C; text-transform:uppercase; letter-spacing:0.08em;">Question 1 of 7</div>
+    <div id="time-label" style="font-size:13px; color:#8B8699;">About 2 min left</div>
+  </div>
+  <div style="width:100%; height:8px; background:#EFEAF4; border-radius:999px; overflow:hidden; margin-bottom:36px;">
+    <div id="progress-bar" style="height:100%; width:14.3%; background:linear-gradient(135deg,#9DBE93,#88B0D4); border-radius:999px; transition:width .3s ease;"></div>
+  </div>
+
+  <div style="background:#fff; border-radius:28px; box-shadow:0 12px 34px rgba(95,110,130,.08); padding:40px;">
+    <h2 id="q-prompt" style="font-size:26px; color:#4B4660; margin-bottom:26px;"></h2>
+    <div id="q-options"></div>
+  </div>
+
+  <div style="display:flex; align-items:center; justify-content:space-between; margin-top:32px;">
+    <button id="back-btn" class="btn-secondary" onclick="quiz.back()">← Back</button>
+    <button id="continue-btn" class="btn-primary" disabled onclick="quiz.next()">Continue →</button>
+  </div>
+</div>
+
+<!-- RESULT SCREEN -->
+<div id="result-screen" style="display:none; position:relative; max-width:680px; margin:20px auto 100px; padding:0 24px; text-align:center;">
+  <div style="font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#9F8FCB; margin-bottom:14px;">Your Care Match</div>
+  <h2 id="r-archetype" style="font-size:42px; color:#4B4660; margin-bottom:8px;"></h2>
+  <div id="r-match" style="display:inline-block; background:#E7EFE3; color:#7FA98C; font-weight:700; font-size:14px; padding:7px 18px; border-radius:999px; margin-bottom:22px;"></div>
+  <p id="r-blurb" style="font-size:17px; line-height:1.7; color:#6b6679; max-width:520px; margin:0 auto 40px;"></p>
+
+  <div style="background:#fff; border-radius:28px; box-shadow:0 12px 34px rgba(95,110,130,.08); padding:36px; text-align:left;">
+    <div style="font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#7FA98C; margin-bottom:18px;">Your Care Team</div>
+    <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+      <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#E7EFE3,#EAF1F6); flex:none;"></div>
+      <div>
+        <div id="r-primary" style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; color:#4B4660;"></div>
+        <div style="font-size:13px; color:#7FA98C; font-weight:700;">Primary</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
+      <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#F1EEF8,#FCEDF0); flex:none;"></div>
+      <div>
+        <div id="r-secondary" style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; color:#4B4660;"></div>
+        <div style="font-size:13px; color:#9F8FCB; font-weight:700;">Secondary</div>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:-8px;">
+      <div style="display:flex;">
+        <div style="width:34px; height:34px; border-radius:50%; background:#CFE3F0; border:2px solid #fff; margin-right:-10px;"></div>
+        <div style="width:34px; height:34px; border-radius:50%; background:#F6CFD7; border:2px solid #fff; margin-right:-10px;"></div>
+        <div style="width:34px; height:34px; border-radius:50%; background:#CBBDE9; border:2px solid #fff;"></div>
+      </div>
+      <div id="r-auto" style="font-size:13px; color:#6b6679; margin-left:16px;"></div>
+    </div>
+  </div>
+
+  <div style="margin-top:36px;">
+    <a id="r-cta" href="Catching%20Bubbles%20-%20Get%20Started.dc.html" style="display:inline-block; background:linear-gradient(135deg,#9DBE93,#88B0D4); color:#fff; font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; padding:17px 36px; border-radius:999px; box-shadow:0 14px 34px rgba(136,176,212,.42);">Book Consultation</a>
+  </div>
+</div>
+
+<script>
+var QUESTIONS = [
+  { id:"stage", prompt:"Where are you in your journey?", options:[
+    { id:"tc", label:"Trying to conceive", w:{beginning:2} },
+    { id:"cp", label:"Currently pregnant", w:{guided:2} },
+    { id:"nb", label:"Baby is here — newborn at home", w:{harbor:2, nest:1} },
+    { id:"pr", label:"In postpartum recovery", w:{harbor:1, nest:2} }
+  ]},
+  { id:"support_type", prompt:"What kind of support matters most right now?", options:[
+    { id:"on", label:"Overnight newborn care", w:{harbor:2} },
+    { id:"dt", label:"Hands-on daytime help", w:{nest:2} },
+    { id:"ep", label:"Education & planning", w:{guided:2} },
+    { id:"bn", label:"Building my wider support network", w:{village:2} }
+  ]},
+  { id:"sleep", prompt:"How are you sleeping?", options:[
+    { id:"bh", label:"Barely — nights are hardest", w:{harbor:3} },
+    { id:"ud", label:"Up and down", w:{harbor:1, nest:1} },
+    { id:"mf", label:"Managing for now", w:{nest:1} },
+    { id:"nr", label:"Not yet relevant", w:{guided:1, beginning:1} }
+  ]},
+  { id:"style", prompt:"What support style fits you?", options:[
+    { id:"sr", label:"Structured & reassuring", w:{harbor:2, guided:1} },
+    { id:"gh", label:"Gentle & hands-off", w:{nest:2} },
+    { id:"ee", label:"Educational & empowering", w:{guided:2} },
+    { id:"cc", label:"Community & connection", w:{village:2} }
+  ]},
+  { id:"household", prompt:"Who's in your village today?", options:[
+    { id:"mj", label:"Mostly just us", w:{harbor:1, nest:1} },
+    { id:"pn", label:"Partner, no nearby family", w:{harbor:1, village:1} },
+    { id:"sl", label:"Some local family/friends", w:{village:1, nest:1} },
+    { id:"lh", label:"Lots of help, need coordination", w:{village:2} }
+  ]},
+  { id:"worries", prompt:"What's weighing on you most?", options:[
+    { id:"er", label:"Exhaustion & rest", w:{harbor:2} },
+    { id:"fd", label:"Feeding", w:{nest:1, harbor:1} },
+    { id:"kn", label:"Knowing what's normal", w:{guided:2} },
+    { id:"fi", label:"Feeling isolated", w:{village:2} }
+  ]},
+  { id:"timing", prompt:"When would you like support to begin?", options:[
+    { id:"asap", label:"As soon as possible", w:{harbor:2} },
+    { id:"ba", label:"Before baby arrives", w:{guided:2, beginning:1} },
+    { id:"fw", label:"In the first few weeks", w:{nest:1, harbor:1} },
+    { id:"se", label:"Still exploring", w:{village:1, beginning:1} }
+  ]}
+];
+
+var ARCHETYPES = {
+  harbor:   { name:"The Calm Harbor", blurb:"Thrives with structured guidance and hands-on overnight support.", primary:"Tori (Overnight & Newborn Specialist)", secondary:"Loren (Postpartum Doula)", auto:"+3 support team members: Priya (lactation), Maya (birth), Nina (coordination)" },
+  nest:     { name:"The Nurtured Nest", blurb:"Wants gentle, hands-on daytime care and a soft landing at home.", primary:"Loren (Postpartum Doula)", secondary:"Amara (Postpartum Doula)", auto:"+2 support team members: Priya (lactation), Nina (coordination)" },
+  guided:   { name:"The Guided Journey", blurb:"Values education, planning, and feeling prepared.", primary:"Maya (Birth Doula)", secondary:"Reese (Birth & Postpartum)", auto:"+2 support team members: Priya (lactation), Loren (postpartum)" },
+  village:  { name:"The Village Builder", blurb:"Wants community, connection, and coordinated support.", primary:"Nina (Family Coordinator)", secondary:"Reese (Birth & Postpartum)", auto:"+2 support team members: Loren (postpartum), Priya (lactation)" },
+  beginning:{ name:"The Supported Beginning", blurb:"Early in the journey; wants a steady guide from the start.", primary:"Reese (Birth & Postpartum)", secondary:"Maya (Birth Doula)", auto:"+2 support team members: Loren (postpartum), Nina (coordination)" }
+};
+var PRIORITY = ["harbor","nest","guided","village","beginning"];
+
+var quiz = {
+  state: { step:0, answers:{} },
+
+  init: function() {
+    try {
+      var saved = JSON.parse(localStorage.getItem("cb_quiz"));
+      if (saved && typeof saved.step === "number" && saved.answers) this.state = saved;
+    } catch(e) {}
+    if (this.state.step >= QUESTIONS.length) this.state = { step:0, answers:{} };
+    this.render();
+  },
+
+  persist: function() {
+    try { localStorage.setItem("cb_quiz", JSON.stringify(this.state)); } catch(e) {}
+  },
+
+  select: function(optId) {
+    var q = QUESTIONS[this.state.step];
+    this.state.answers[q.id] = optId;
+    this.persist();
+    this.render();
+  },
+
+  next: function() {
+    var q = QUESTIONS[this.state.step];
+    if (!this.state.answers[q.id]) return;
+    if (this.state.step === QUESTIONS.length - 1) {
+      this.persist();
+      this.showResult();
+      return;
+    }
+    this.state.step++;
+    this.persist();
+    this.render();
+  },
+
+  back: function() {
+    if (this.state.step === 0) { window.location.href = "Catching%20Bubbles%20-%20Home.dc.html"; return; }
+    this.state.step--;
+    this.persist();
+    this.render();
+  },
+
+  render: function() {
+    var step = this.state.step;
+    var q = QUESTIONS[step];
+    document.getElementById("q-label").textContent = "Question " + (step+1) + " of " + QUESTIONS.length;
+    var minLeft = Math.max(1, Math.ceil((QUESTIONS.length - step) * (2/QUESTIONS.length)));
+    document.getElementById("time-label").textContent = "About " + minLeft + " min left";
+    document.getElementById("progress-bar").style.width = (((step+1)/QUESTIONS.length)*100) + "%";
+    document.getElementById("q-prompt").textContent = q.prompt;
+
+    var selected = this.state.answers[q.id];
+    var optsHtml = "";
+    for (var i=0; i<q.options.length; i++) {
+      var opt = q.options[i];
+      var isSel = opt.id === selected;
+      optsHtml += '<div class="option' + (isSel ? ' selected' : '') + '" onclick="quiz.select(\'' + opt.id + '\')">' +
+        '<span style="font-size:15.5px; color:#4B4660; font-weight:' + (isSel ? '700' : '500') + ';">' + opt.label + '</span>' +
+        '<span class="badge">' + (isSel ? '✓' : '') + '</span>' +
+      '</div>';
+    }
+    document.getElementById("q-options").innerHTML = optsHtml;
+
+    document.getElementById("back-btn").textContent = step === 0 ? "← Home" : "← Back";
+    document.getElementById("continue-btn").disabled = !selected;
+    document.getElementById("continue-btn").textContent = step === QUESTIONS.length - 1 ? "See My Match →" : "Continue →";
+  },
+
+  computeResult: function() {
+    var scores = { harbor:0, nest:0, guided:0, village:0, beginning:0 };
+    for (var qId in this.state.answers) {
+      var optId = this.state.answers[qId];
+      var q = QUESTIONS.filter(function(qq){ return qq.id === qId; })[0];
+      if (!q) continue;
+      var opt = q.options.filter(function(o){ return o.id === optId; })[0];
+      if (!opt) continue;
+      for (var key in opt.w) scores[key] += opt.w[key];
+    }
+    var winner = PRIORITY[0], best = -1;
+    for (var i=0; i<PRIORITY.length; i++) {
+      var k = PRIORITY[i];
+      if (scores[k] > best) { best = scores[k]; winner = k; }
+    }
+    var matchPct = Math.min(98, Math.round(85 + Math.min(best, 8)));
+    return { archetype: winner, matchPct: matchPct };
+  },
+
+  showResult: function() {
+    var result = this.computeResult();
+    var a = ARCHETYPES[result.archetype];
+    document.getElementById("r-archetype").textContent = a.name;
+    document.getElementById("r-match").textContent = result.matchPct + "% Match";
+    document.getElementById("r-blurb").textContent = a.blurb;
+    document.getElementById("r-primary").textContent = a.primary;
+    document.getElementById("r-secondary").textContent = a.secondary;
+    document.getElementById("r-auto").textContent = a.auto;
+    document.getElementById("quiz-screen").style.display = "none";
+    document.getElementById("result-screen").style.display = "block";
+  }
+};
+
+quiz.init();
+</script>
+
+</body>
+</html>
